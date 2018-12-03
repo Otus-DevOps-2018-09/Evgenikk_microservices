@@ -1,0 +1,10 @@
+---
+- name: Configure VM template
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: copy app config files
+      copy:
+        src: files/
+        dest: /home/appuser/
+        mode: 0644

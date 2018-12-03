@@ -1,0 +1,37 @@
+---
+- name: Install docker-engine
+  hosts: all
+  become: true
+  tasks:
+    - name: add apt-key
+      command: sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+    - name: add deb repo
+      apt_repository:
+        repo: deb https://apt.dockerproject.org/repo ubuntu-xenial main
+    
+    - name: install docker
+      apt: pkg=docker-engine state=installed update_cache=true
+   
+    - name: install pip
+      apt:
+        name: python-pip
+        state: installed
+
+    - name: enable docker-service
+      systemd:
+        name: docker
+        enabled: yes
+
+    - name: add appuser in docker group
+      user:
+        append: yes
+        name: appuser
+        groups: docker
+    
+    - name: Install pip docker for module docker_container
+      pip:
+        name: docker
+
+
+    
