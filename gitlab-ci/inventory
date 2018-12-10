@@ -1,0 +1,2 @@
+[docker-srv]
+appserver ansible_host=35.246.114.133 
