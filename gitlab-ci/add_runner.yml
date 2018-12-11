@@ -7,9 +7,15 @@
   tasks:
     - name: Run 1 more runner
       docker_container:
-        name: gitlab-runner{{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}
+        name: "gitlab-runner{{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}"
         image: gitlab/gitlab-runner:latest
         detach: yes
-        restart_policy: always
+        tty: yes
+        interactive: yes
+        #state: started
+        #restart_policy: always
         volumes: ["/srv/gitlab-runner/config:/etc/gitlab-runner", "/var/run/docker.sock:/var/run/docker.sock"]
+        entrypoint: "/bin/bash"
         command: "{{ docker_cmd }}"
+
+        

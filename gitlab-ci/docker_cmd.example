@@ -1,1 +1,1 @@
-bash gitlab-runner register --non-interactive --executor "docker" --docker-image alpine:latest  --url "YOUR_GITLAB_URL" --registration-token "YOUR_TOKEN" --description "docker-runner" run-untagged locked="false"
+/usr/bin/gitlab-runner  run --user=gitlab-runner --working-directory=/home/gitlab-runner &; usr/bin/gitlab-runner register --non-interactive --executor "docker" --docker-image alpine:latest --url "my ip --registration-token "my token" --description "docker-runner" run-untagged locked="false" 
