@@ -74,3 +74,9 @@ docker-compose -p MY_PROJECT up -d
 Изменили Docker-compose.yml таким образом, чтобы бд контейнер был  в back_net
 Создали  Docker-compose.override.yml. Он позволяет изменять код без пересборки контейнера, а также запускает puma в debug режиме.
 
+### Gitlab-ci-1
+/gitlab-ci/Build содержит скрипт и Dockerfile, используемых при создании образа batcake/gitlab-reg-runner. Данный образ при запуске регестрирует и запускает runner. Для этого при запуске нужно подключеить volume и задать значения переменных окружения TOKEN и GITLAB_URL
+
+/Deploy/add_runner.yml запускает дополнительный gitlab-runner используя образ описанный выше, загруженный из docker hub.
+
+В ходе работы был развернут gitlab, и настроены автотесты

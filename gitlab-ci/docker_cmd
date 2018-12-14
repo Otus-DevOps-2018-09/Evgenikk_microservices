@@ -1,1 +1,0 @@
-bash gitlab-runner register --non-interactive --executor "docker" --docker-image alpine:latest  --url "http://35.246.114.133/" --registration-token "BXQt3weaxJbxz3sURh_m" --description "docker-runner" run-untagged locked="false"
