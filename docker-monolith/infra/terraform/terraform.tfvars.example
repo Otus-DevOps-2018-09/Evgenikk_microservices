@@ -1,0 +1,4 @@
+project = "project_name"
+disk_image = "docker-reddit" 
+app_count = "1"
+
