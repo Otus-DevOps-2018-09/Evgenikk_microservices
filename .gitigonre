@@ -9,7 +9,7 @@ ansible.cfg
 jdauphant.nginx
 vault.key
 *.retry
-
+editor
 # Vagrant & molecule
 .vagrant/
 *.log
@@ -17,3 +17,4 @@ vault.key
 .molecule
 .cache
 .pytest_cache
+*.env
