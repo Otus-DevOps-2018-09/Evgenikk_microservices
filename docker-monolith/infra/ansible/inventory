@@ -1,2 +1,2 @@
 [testsrv]
-appserver ansible_host=35.233.71.107
+appserver ansible_host=35.190.172.164 
