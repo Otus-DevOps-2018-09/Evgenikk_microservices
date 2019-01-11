@@ -1,0 +1,21 @@
+---
+- name: Check && install python
+  hosts: all
+  become: true
+  vars:
+    #docker_cmd: "{{ lookup('file', './docker_cmd') }}"
+    token: BXQt3weaxJbxz3sURh_m
+    url: http://35.246.105.21/
+  tasks:
+    - name: Run 1 more runner
+      docker_container:
+        name: "gitlab-runner{{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}"
+        image: batcake/gitlab-reg-runner:1.0
+        detach: yes
+        tty: yes
+        interactive: yes
+        volumes: ["/srv/gitlab-runner/config:/etc/gitlab-runner", "/var/run/docker.sock:/var/run/docker.sock"]
+        env:
+          TOKEN: "{{ token }}"
+          GITLAB_URL: "{{ url }}"
+
