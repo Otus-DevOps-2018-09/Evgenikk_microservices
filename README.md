@@ -100,3 +100,14 @@ docker-compose -p MY_PROJECT up -d
 
 Написали Makefile для того, чтобы делать build и push всех используемых в лабораторной работе контейнеров
 
+ссылки на образы в dockerhub:
+```
+https://cloud.docker.com/u/batcake/repository/docker/batcake/ui
+https://cloud.docker.com/u/batcake/repository/docker/batcake/post
+https://cloud.docker.com/u/batcake/repository/docker/batcake/comment
+
+https://cloud.docker.com/u/batcake/repository/docker/batcake/cloudprober
+https://cloud.docker.com/u/batcake/repository/docker/batcake/prometheus
+https://cloud.docker.com/repository/docker/batcake/mongod_exporter
+```
+
