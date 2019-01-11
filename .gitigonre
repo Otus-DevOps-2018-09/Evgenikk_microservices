@@ -20,3 +20,4 @@ editor
 .pytest_cache
 *.env
 docker_cmd
+Docker/*.env
