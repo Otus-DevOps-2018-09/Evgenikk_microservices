@@ -1,5 +1,5 @@
 .vscode/
- *.DS_Store
+*.DS_Store
 ansible.cfg
 /Users/Radio/git_workspace/otus/Evgenikk_infra/packer/variables.json
 *.tfstate
