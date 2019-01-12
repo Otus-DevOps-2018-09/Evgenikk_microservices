@@ -86,3 +86,28 @@ docker-compose -p MY_PROJECT up -d
 Добавили dev, staging, prod  окружения. 
 В stage и prod  окружениях сделали запуск "по кнопке". Добавили условие на наличие тэга.
 Настроили динамическое окружение для каждой новой ветки.
+
+### Monitoring-1
+
+Развернули Prometheus reddit app при помощи docker-compose
+Посмотрели данные различных heathchecks в Prometheus
+Использовали Node exporter для мониторинга виртуальной машины
+Сделали push в dockerhub контейнеров prometheus, ui, post, comment
+
+Использовали percona/mongodb_exporter для мониторинга mongodb. В monitoring/mongo-exporter/Dockerfile описан multistage build, в котором для формирования бинарного файла используется образ golang;
+
+Реализовали blackbox мониторинг сервисов comment,post,ui. Для реализации blackbox мониторинга, использовался google/cloudprober. Конфигурация cloudprober: /monitoring/cloudprober/cloudprober.cfg
+
+Написали Makefile для того, чтобы делать build и push всех используемых в лабораторной работе контейнеров
+
+ссылки на образы в dockerhub:
+```
+https://cloud.docker.com/u/batcake/repository/docker/batcake/ui
+https://cloud.docker.com/u/batcake/repository/docker/batcake/post
+https://cloud.docker.com/u/batcake/repository/docker/batcake/comment
+
+https://cloud.docker.com/u/batcake/repository/docker/batcake/cloudprober
+https://cloud.docker.com/u/batcake/repository/docker/batcake/prometheus
+https://cloud.docker.com/repository/docker/batcake/mongod_exporter
+```
+

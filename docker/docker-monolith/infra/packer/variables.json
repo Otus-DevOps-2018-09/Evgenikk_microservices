@@ -1,0 +1,7 @@
+{
+"project-id": "docker-224014",
+"source-image": "ubuntu-1604-lts",
+"machine_type": "n1-standard-1",
+"network_tags": "puma-server",
+"description": "image with installed ruby, mongodb"
+}

@@ -1,4 +1,0 @@
----
-- import_playbook: base.yml
-- import_playbook: packer-copy.yml
-- import_playbook: packer-install.yml
