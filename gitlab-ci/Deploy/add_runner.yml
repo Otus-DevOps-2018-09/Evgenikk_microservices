@@ -3,7 +3,9 @@
   hosts: all
   become: true
   vars:
-    docker_cmd: "{{ lookup('file', './docker_cmd') }}"
+    #docker_cmd: "{{ lookup('file', './docker_cmd') }}"
+    token: BXQt3weaxJbxz3sURh_m
+    url: http://35.246.105.21/
   tasks:
     - name: Run 1 more runner
       docker_container:
