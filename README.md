@@ -1,5 +1,7 @@
 # Evgenikk_microservices
 Evgenikk microservices repository
+ gcloud compute firewall-rules create <name> --allow tcp:8080
+
 
 ### Docker-1
 Установили Docker
@@ -88,6 +90,10 @@ docker-compose -p MY_PROJECT up -d
 Настроили динамическое окружение для каждой новой ветки.
 
 ### Monitoring-1
+:9292 -reddit
+:9090 -prometheus
+:8080 -cAdvisor
+:3000 -Grafana
 
 Развернули Prometheus reddit app при помощи docker-compose
 Посмотрели данные различных heathchecks в Prometheus
@@ -99,7 +105,6 @@ docker-compose -p MY_PROJECT up -d
 Реализовали blackbox мониторинг сервисов comment,post,ui. Для реализации blackbox мониторинга, использовался google/cloudprober. Конфигурация cloudprober: /monitoring/cloudprober/cloudprober.cfg
 
 Написали Makefile для того, чтобы делать build и push всех используемых в лабораторной работе контейнеров
-
 ссылки на образы в dockerhub:
 ```
 https://cloud.docker.com/u/batcake/repository/docker/batcake/ui
