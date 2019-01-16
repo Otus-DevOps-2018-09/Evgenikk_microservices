@@ -18,4 +18,3 @@ groups:
       annotations:
         description: 'reddit has exceeded threshold (0.1) for the reponse time for 95 percentile'
         summary: '95 percentile threshold exceeded for ui'
-  
