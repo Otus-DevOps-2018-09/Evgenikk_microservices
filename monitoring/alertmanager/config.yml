@@ -1,0 +1,17 @@
+global:
+  slack_api_url: 'https://hooks.slack.com/services/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'
+route:
+  receiver: 'slack-notifications-and-email-notiff'
+
+receivers:
+  - name: 'slack-notifications-and-email-notiff'
+    slack_configs:
+    - channel: '#evgeny_nikitin'
+    email_configs:
+    - to: ev.miet@gmail.com
+      from: ev.miet@gmail.com
+      smarthost: smtp.gmail.com:587
+      auth_username: ev.miet@gmail.com
+      auth_identity: ev.miet@gmail.com
+      auth_password: fake_password
+
