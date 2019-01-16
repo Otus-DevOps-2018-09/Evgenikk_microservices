@@ -94,6 +94,7 @@ docker-compose -p MY_PROJECT up -d
 :9090 -prometheus
 :8080 -cAdvisor
 :3000 -Grafana
+:9093 -Alertmanager
 
 Развернули Prometheus reddit app при помощи docker-compose
 Посмотрели данные различных heathchecks в Prometheus
@@ -115,4 +116,20 @@ https://cloud.docker.com/u/batcake/repository/docker/batcake/cloudprober
 https://cloud.docker.com/u/batcake/repository/docker/batcake/prometheus
 https://cloud.docker.com/repository/docker/batcake/mongod_exporter
 ```
+### Monitoring-2
+Установили grafana
+Использовали готовый dashbord для мониторинга Docker и системы
+Создали свой dashbord для мониторинга  ui
+Добавили график количества запросов к UI, использовали rate для наблюдения изменения количества запросов и запросов с неверным адресом за единицу времени
+Добавили график с 95 процентилем времени ответа на запрос
+Создали dashbord с бизнес метриками
+Настроили alertmanager для отправки в slack сообщений в случае недоступности одной из наблюдаемых систем
+
+Дополнили Makefile
+Добавили в prometheus сбор метрик с докера. Для этого необходимо так же на хостовой машине в папку /etc/docker/ скопировать файл monitoring/store/daemon.json
+Добавили  alert на значение 95ого процентиля задержки ответа
+Настроили уведомления через почту в alertmanager
+
+https://cloud.docker.com/u/batcake/repository/docker/batcake/alertmanager
+
 

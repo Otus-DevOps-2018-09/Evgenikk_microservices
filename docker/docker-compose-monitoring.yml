@@ -35,7 +35,7 @@ services:
     - '-mongodb.uri=mongodb://post_db:27017'
     networks:
       - back_net
-  
+
   cloudprober:
     image: ${USER_NAME}/cloudprober:1.0
     networks: 
@@ -43,6 +43,7 @@ services:
       - front_net
     ports:
      - '9313:9313'
+
   cadvisor:
     image: google/cadvisor:v0.29.0
     volumes:
@@ -54,6 +55,7 @@ services:
       - '8080:8080'
     networks: 
       - back_net
+
   grafana:
     image: grafana/grafana:5.0.0
     volumes:
@@ -67,14 +69,18 @@ services:
       - 3000:3000
     networks: 
       - back_net
+
   alertmanager:
     image: ${USER_NAME}/alertmanager
+#    env_file:
+#      - gmail_auth.env
     command:
       - '--config.file=/etc/alertmanager/config.yml'
     ports:
       - 9093:9093
     networks: 
       - back_net
+
 
 
 volumes:
