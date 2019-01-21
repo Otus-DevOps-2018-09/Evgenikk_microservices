@@ -1,5 +1,7 @@
 default_build: post comment ui prometheus cloudprober alertmanager
 push: push_comment push_post push_ui push_prometheus push_cloudprober push_alertmanager	
+reddit: post comment ui 
+push_reddit: push_comment push_ui push_post
 
 post: 
 	cd src/post-py && bash docker_build.sh
@@ -16,6 +18,9 @@ cloudprober:
 alertmanager:
 	cd monitoring/alertmanager && docker build -t ${USER_NAME}/alertmanager .
 
+fluentd:
+	cd logging/fluentd && docker build -t ${USER_NAME}/fluentd .
+
 push_post:
 	docker push ${USER_NAME}/post
 push_comment:
@@ -30,3 +35,5 @@ push_prometheus:
 push_alertmanager:
 	docker push ${USER_NAME}/alertmanager
 
+push_fluentd:
+	docker push ${USER_NAME}/fluentd
