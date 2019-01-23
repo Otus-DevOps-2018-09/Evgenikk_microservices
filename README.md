@@ -133,21 +133,30 @@ https://cloud.docker.com/repository/docker/batcake/mongod_exporter
 https://cloud.docker.com/u/batcake/repository/docker/batcake/alertmanager
 
 ### Logging-1
+```
 5601 - kibana
 5140 - fluentd
 9410 - zipkin
-grok:
-https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns
-sudo sysctl -w vm.max_map_count=262144 - устраняет проблему с запуском elasticksearch
+grok:https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns
+sudo sysctl -w vm.max_map_count=262144 - устраняет проблему с запуском elasticsearch
+```
 
 Поднят EFK стэк
 Использован fluentd для обработки логов в формате json
 Составили конфигурацию fluentd для обработки обоих форматов лог сообщений от UI сервиса
 Развернут Zipkin и с его помощью выполнена трассировка запросов
 
+### Kubernetes-1
 
-
-
+❯❯❯ kubectl get pods
+NAME                                  READY     STATUS    RESTARTS   AGE
+busybox-bd8fb7cbd-v5ckc               1/1       Running   0          19m
+comment-deployment-554c5d68db-p6bqc   1/1       Running   0          1m
+mongo-deployment-67f58fb89-w45d7      1/1       Running   0          1m
+nginx-dbddb74b8-4zdvz                 1/1       Running   0          16m
+post-deployment-b668dc698-dskjf       1/1       Running   0          51s
+ui-deployment-5796679cb-rnxcd         1/1       Running   0          41s
+untrusted                             1/1       Running   0          9m
 
 
 
