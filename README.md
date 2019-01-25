@@ -162,7 +162,7 @@ ui-deployment-5796679cb-rnxcd         1/1       Running   0          41s
 untrusted                             1/1       Running   0          9m
 
 
-### Kubernetes-1
+### Kubernetes-2
 
 Для доступа  ui использовал эту ссылку из-за неверной версии kubernetes:
 http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
