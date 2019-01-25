@@ -10,5 +10,5 @@ variable zone {
 
 variable project {
   description = "Project ID"
-  default = "docker-224014"
+  default = "fake_project"
 }
