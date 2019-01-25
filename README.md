@@ -150,7 +150,7 @@ sudo sysctl -w vm.max_map_count=262144 - устраняет проблему с 
 
 Выполнили все задания из https://github.com/kelseyhightower/kubernetes-the-hard-way/tree/master/docs
 Развернули post ui mongo и comment сервисы при помощи kubernetes
-
+```
 ❯❯❯ kubectl get pods
 NAME                                  READY     STATUS    RESTARTS   AGE
 busybox-bd8fb7cbd-v5ckc               1/1       Running   0          19m
@@ -160,7 +160,7 @@ nginx-dbddb74b8-4zdvz                 1/1       Running   0          16m
 post-deployment-b668dc698-dskjf       1/1       Running   0          51s
 ui-deployment-5796679cb-rnxcd         1/1       Running   0          41s
 untrusted                             1/1       Running   0          9m
-
+```
 
 ### Kubernetes-2
 
