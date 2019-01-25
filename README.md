@@ -170,3 +170,32 @@ http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-da
 Развернули локальное окружение для работы с Kubernetes и использовали его для разворачивания reddit app
 Резвернули  kubernetes в GKE, развернули  reddit в  dev namespace
 Использовали terraform для автоматизации развертывания кластера kubernetes
+
+cheatsheet:
+```
+kuberctl config current-context
+kubectl config get-contexts
+
+kubectl get nodes -o wide
+kubectl get ingress -n dev  
+kubectl describe service ui -n dev | grep NodePort 
+
+TLS:
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=<ingress ip>"
+kubectl create secret tls ui-ingress --key tls.key --cert tls.crt -n dev
+
+export TLS_CRT=$(cat tls.crt| base64 )
+export TLS_KEY=$(cat tls.key | base64 )
+```
+
+### Kubernetes-3
+
+Проверили отсутсвие связности при выключенном kube-dns
+Использовали load blancer для доступа к приложению
+Использовали ingress для доступа к приложению
+Защитили сервис при помощи TLS
+Описали созданный объект secret  в виде k8s манифеста
+Настроили network policy  для mongodb
+Использовали google диск для хранения томов базы данных
+Использовали PersistentVolume для хранения томов бд
+Использовали динамическое выделение volume с использование SSD
