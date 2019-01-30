@@ -1,0 +1,7 @@
+---
+name: ui
+version: 1.0.0
+description: OTUS sample reddit application UI
+maintainers:
+  - name: Evgeny Nikitin
+    email: ev.miet@gmail.com

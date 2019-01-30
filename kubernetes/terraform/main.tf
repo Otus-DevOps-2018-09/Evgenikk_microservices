@@ -31,7 +31,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_compute_firewall" "k8s" {
-  name    = "kuber_and_puma"
+  name    = "kubepuma"
   network = "default"
   allow {
     protocol = "tcp"

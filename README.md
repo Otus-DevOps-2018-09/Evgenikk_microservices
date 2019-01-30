@@ -171,10 +171,11 @@ http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-da
 Резвернули  kubernetes в GKE, развернули  reddit в  dev namespace
 Использовали terraform для автоматизации развертывания кластера kubernetes
 
-cheatsheet:
+### cheatsheet:
 ```
 kuberctl config current-context
 kubectl config get-contexts
+gcloud container clusters get-credentials k8s-terraform-cluster  --region=us-central1-a  
 
 kubectl get nodes -o wide
 kubectl get ingress -n dev  
@@ -186,6 +187,11 @@ kubectl create secret tls ui-ingress --key tls.key --cert tls.crt -n dev
 
 export TLS_CRT=$(cat tls.crt| base64 )
 export TLS_KEY=$(cat tls.key | base64 )
+
+kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all -n dev
+
+Helm:
+helm del --purge test-ui-1
 ```
 
 ### Kubernetes-3
