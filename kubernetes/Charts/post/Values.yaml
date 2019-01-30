@@ -5,6 +5,6 @@ service:
 
 image:
   repository: batcake/post
-  tag: latest
+  tag: logging
 
 databaseHost:

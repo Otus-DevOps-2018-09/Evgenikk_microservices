@@ -10,7 +10,7 @@ comment:
 post:
   image:
     repository: batcake/post
-    tag:  latest
+    tag:  logging
   service:
     externalPort: 5000
     internalPort: 5000
@@ -19,5 +19,11 @@ ui:
   image:
     repository: batcake
     tag:  logging
+
+  postHost:
+  postPort:
+  commentHost:
+  commentPort:
+
   service:
     externalPort: 9292
