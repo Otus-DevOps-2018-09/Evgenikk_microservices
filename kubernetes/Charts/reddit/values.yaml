@@ -9,11 +9,12 @@ comment:
 
 post:
   image:
-    repository: batcake/post
-    tag:  logging
+    repository: chromko/post
+    tag:  latest
   service:
     externalPort: 5000
     internalPort: 5000
+  databaseHost:
 
 ui:
   image:

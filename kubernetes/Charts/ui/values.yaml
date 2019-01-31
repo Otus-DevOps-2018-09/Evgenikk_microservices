@@ -5,7 +5,7 @@ service:
 
 image:
   repository: batcake
-  tag: latest
+  tag: logging
 
 postHost:
 postPort:

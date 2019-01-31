@@ -1,10 +1,10 @@
 ---
 service:
-  internalPort: 5000
   externalPort: 5000
+  internalPort: 5000
 
 image:
-  repository: batcake/post
-  tag: logging
+  repository: chromko/post
+  tag: latest
 
 databaseHost:

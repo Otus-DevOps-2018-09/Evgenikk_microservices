@@ -180,6 +180,7 @@ gcloud container clusters get-credentials k8s-terraform-cluster  --region=us-cen
 kubectl get nodes -o wide
 kubectl get ingress -n dev  
 kubectl describe service ui -n dev | grep NodePort 
+kubectl describe pods reddit-test-mongodb-d5576c5c9-tg8jl
 
 TLS:
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=<ingress ip>"
@@ -191,7 +192,11 @@ export TLS_KEY=$(cat tls.key | base64 )
 kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all -n dev
 
 Helm:
+helm install reddit --name reddit-test 
 helm del --purge test-ui-1
+
+helm dep update reddit
+helm upgrade reddit-test ./reddit 
 ```
 
 ### Kubernetes-3
