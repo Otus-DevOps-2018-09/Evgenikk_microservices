@@ -171,14 +171,16 @@ http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-da
 Резвернули  kubernetes в GKE, развернули  reddit в  dev namespace
 Использовали terraform для автоматизации развертывания кластера kubernetes
 
-cheatsheet:
+### cheatsheet:
 ```
 kuberctl config current-context
 kubectl config get-contexts
+gcloud container clusters get-credentials k8s-terraform-cluster  --region=us-central1-a  
 
 kubectl get nodes -o wide
 kubectl get ingress -n dev  
 kubectl describe service ui -n dev | grep NodePort 
+kubectl describe pods reddit-test-mongodb-d5576c5c9-tg8jl
 
 TLS:
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=<ingress ip>"
@@ -186,6 +188,15 @@ kubectl create secret tls ui-ingress --key tls.key --cert tls.crt -n dev
 
 export TLS_CRT=$(cat tls.crt| base64 )
 export TLS_KEY=$(cat tls.key | base64 )
+
+kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all -n dev
+
+Helm:
+helm install reddit --name reddit-test 
+helm del --purge test-ui-1
+
+helm dep update reddit
+helm upgrade reddit-test ./reddit 
 ```
 
 ### Kubernetes-3
@@ -199,3 +210,13 @@ export TLS_KEY=$(cat tls.key | base64 )
 Использовали google диск для хранения томов базы данных
 Использовали PersistentVolume для хранения томов бд
 Использовали динамическое выделение volume с использование SSD
+
+### Kubernetes-4
+
+Описали деплой приложения при помощи chart-ов helm-а
+Развернули про помощи helm приложение
+Поправили конфигурацию приложения
+Обновили установленное helm-ом приложение
+Развернули Gitlab в kubernetes
+Настроили CI/CD для приложения в Gitlab
+

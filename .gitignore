@@ -18,3 +18,4 @@ vault.key
 *.env
 docker_cmd
 minikube
+Gitlab_ci*
