@@ -220,3 +220,11 @@ helm upgrade reddit-test ./reddit
 Развернули Gitlab в kubernetes
 Настроили CI/CD для приложения в Gitlab
 
+### Kubernetes 5 
+
+Установили prometheus при помощи helm upgrade prom . -f custom_values.yml --install.
+Добавили в prometheus job для сервисов  ui post и comment.
+Развернули grafana, добавили в нее мониторинг kubernetes, бизнес логики и UI.
+Создали переменную namespace и изменили дэшборды для мониторинга reddit по отдельности в разных namespaces
+Загрузили дэшборд  kubernetes deployment metrics
+
